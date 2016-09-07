@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include nautcustom *.css
+recursive-include nautcustom *.csv
+recursive-include nautcustom *.html
+recursive-include nautcustom *.ico
+recursive-include nautcustom *.js
+recursive-include nautcustom *.json
+recursive-include nautcustom *.md
+recursive-include nautcustom *.png
+recursive-include nautcustom *.py
+recursive-include nautcustom *.svg
+recursive-include nautcustom *.txt
+recursive-exclude nautcustom *.pyc
