@@ -3,7 +3,7 @@
   "docstatus": 0, 
   "doctype": "Custom Script", 
   "dt": "Quotation", 
-  "modified": "2016-08-10 01:46:06.102933", 
+  "modified": "2016-10-11 21:33:48.573548", 
   "name": "Quotation-Client", 
   "script": "cur_frm.fields_dict['tc_name'].get_query = function(doc) {\n\treturn {\n\t\tfilters: [[\n\t\t\t'title', 'like', \"Quote%\"\n\t\t]]\n\t}\n}", 
   "script_type": "Client"

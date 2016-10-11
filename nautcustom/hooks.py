@@ -74,13 +74,7 @@ fixtures = ["Custom Field", "Custom Script"]
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-#	}
-# }
+doc_events = {"Quotation": {"validate": "nautcustom.nautcustom.quotation_optional.second_totals"}}
 
 # Scheduled Tasks
 # ---------------
