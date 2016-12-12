@@ -12,18 +12,18 @@
   "docstatus": 0, 
   "doctype": "Custom Script", 
   "dt": "Request for Quotation", 
-  "modified": "2016-09-07 10:19:54.764274", 
+  "modified": "2016-12-12 13:14:42.471214", 
   "name": "Request for Quotation-Client", 
-  "script": "frappe.ui.form.on(\"Request for Quotation\",{\nrefresh: function(frm) {\nif(frm.doc.docstatus==1) {\nfrm.add_custom_button(__(\"Load Attachments\"), function(foo) {\n\n    \tfrappe.call({\n    \t\tmethod:\"nautcustom.nautcustom.load_attachments.attach_all_docs\",\n    \t\targs: {\n    \t\t\tdocument: cur_frm.doc,\n\n    \t\t},\n    \t\tcallback: function(r) {\n    \t\t\tfrm.reload_doc();\n\n    \t\t}\n    \t});\n\n});\n}\n}\n});", 
+  "script": "frappe.ui.form.on(\"Request for Quotation\",{\nrefresh: function(frm) {\nif(frm.doc.docstatus==1) {\nfrm.add_custom_button(__(\"Load Attachments\"), function(foo) {\n\n    \tfrappe.call({\n    \t\tmethod:\"nautcustom.nautcustom.load_attachments.attach_all_docs\",\n    \t\targs: {\n    \t\t\tdocument: cur_frm.doc,\n\n    \t\t},\n    \t\tcallback: function(r) {\n    \t\t\tfrm.reload_doc();\n\n    \t\t}\n    \t});\n\n});\n}\n}\n});\ncur_frm.fields_dict['multi_tc'].grid.get_field('mt_title').get_query = function(doc) {\n    return {\n        filters: [[\n            'Terms and Conditions', 'type', '=', doc.type_select\n        ]]\n    }\n};", 
   "script_type": "Client"
  }, 
  {
   "docstatus": 0, 
   "doctype": "Custom Script", 
   "dt": "Purchase Order", 
-  "modified": "2016-09-13 15:23:43.649460", 
+  "modified": "2016-12-12 13:14:32.686955", 
   "name": "Purchase Order-Client", 
-  "script": "frappe.ui.form.on(\"Purchase Order\",{\nrefresh: function(frm) {\nif(frm.doc.docstatus==1) {\nfrm.add_custom_button(__(\"Load Attachments\"), function(foo) {\n\n    \tfrappe.call({\n    \t\tmethod:\"nautcustom.nautcustom.load_attachments.attach_all_docs\",\n    \t\targs: {\n    \t\t\tdocument: cur_frm.doc,\n\n    \t\t},\n    \t\tcallback: function(r) {\n    \t\t\tfrm.reload_doc();\n\n    \t\t}\n    \t});\n\n});\n}\n}\n});", 
+  "script": "frappe.ui.form.on(\"Purchase Order\",{\nrefresh: function(frm) {\nif(frm.doc.docstatus==1) {\nfrm.add_custom_button(__(\"Load Attachments\"), function(foo) {\n\n    \tfrappe.call({\n    \t\tmethod:\"nautcustom.nautcustom.load_attachments.attach_all_docs\",\n    \t\targs: {\n    \t\t\tdocument: cur_frm.doc,\n\n    \t\t},\n    \t\tcallback: function(r) {\n    \t\t\tfrm.reload_doc();\n\n    \t\t}\n    \t});\n\n});\n}\n}\n});\ncur_frm.fields_dict['multi_tc'].grid.get_field('mt_title').get_query = function(doc) {\n    return {\n        filters: [[\n            'Terms and Conditions', 'type', '=', doc.type_select\n        ]]\n    }\n};", 
   "script_type": "Client"
  }, 
  {
@@ -42,6 +42,15 @@
   "modified": "2016-11-09 19:53:57.984475", 
   "name": "Leave Application-Client", 
   "script": "frappe.ui.form.on(\"Leave Application\", {\n\"employee\": function(frm) {\n\t\tif(frm.doc.employee) {\n\t\t\treturn frappe.call({\n\t\t\t\tmethod: \"erpnext.hr.doctype.leave_application.leave_application.get_leave_balance_on\",\n\t\t\t\targs: {\n\t\t\t\t\temployee: frm.doc.employee,\n\t\t\t\t\tdate: frm.doc.posting_date,\n\t\t\t\t\tleave_type: 'Sick Leave',\n\t\t\t\t\tconsider_all_leaves_in_the_allocation_period: true\n\t\t\t\t},\n\t\t\t\tcallback: function(r) {\n\t\t\t\t\tif (!r.exc && r.message) {\n\t\t\t\t\t\tfrm.set_value('sick_days', r.message);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t});\n\t\t}\n\t\t//else(frm.set_value('sick_days')==='');\n}\n});\nfrappe.ui.form.on(\"Leave Application\", {\n\"employee\": function(frm) {\n\t\tif(frm.doc.employee) {\n\t\t\treturn frappe.call({\n\t\t\t\tmethod: \"erpnext.hr.doctype.leave_application.leave_application.get_leave_balance_on\",\n\t\t\t\targs: {\n\t\t\t\t\temployee: frm.doc.employee,\n\t\t\t\t\tdate: frm.doc.posting_date,\n\t\t\t\t\tleave_type: 'Vacation',\n\t\t\t\t\tconsider_all_leaves_in_the_allocation_period: true\n\t\t\t\t},\n\t\t\t\tcallback: function(r) {\n\t\t\t\t\tif (!r.exc && r.message) {\n\t\t\t\t\t\tfrm.set_value('vacation_days', r.message);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t});\n\t\t}\n\t\t//else(frm.set_value('vacation_days')==='');\n}\n});", 
+  "script_type": "Client"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "Sales Order", 
+  "modified": "2016-12-12 13:07:34.765712", 
+  "name": "Sales Order-Client", 
+  "script": "cur_frm.fields_dict['multi_tc'].grid.get_field('mt_title').get_query = function(doc) {\n    return {\n        filters: [[\n            'Terms and Conditions', 'type', '=', doc.type_select\n        ]]\n    }\n};", 
   "script_type": "Client"
  }
 ]
