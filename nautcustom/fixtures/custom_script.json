@@ -2,6 +2,15 @@
  {
   "docstatus": 0, 
   "doctype": "Custom Script", 
+  "dt": "Expense Claim", 
+  "modified": "2016-12-01 09:02:15.800450", 
+  "name": "Expense Claim-Client", 
+  "script": "frappe.ui.form.on(\"Expense Claim\", \"refresh\", function(frm) {\n\tif (frm.doc.__islocal){\n\t\tcur_frm.fields_dict.expenses.grid.toggle_enable(\"receipt\", false);\n\t\tcur_frm.fields_dict.expenses.grid.set_column_disp(\"receipt\", false);\n        \t}\n\t}\n);\nfrappe.ui.form.on(\"Expense Claim\", \"validate\", function(frm) {\n\tcur_frm.fields_dict.expenses.grid.toggle_enable(\"receipt\", true);\n\tcur_frm.fields_dict.expenses.grid.set_column_disp(\"receipt\", true);\n\tmsgprint(\"Please add or check receipts.\");\n        }\n);", 
+  "script_type": "Client"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
   "dt": "Quotation", 
   "modified": "2016-11-10 20:30:44.880042", 
   "name": "Quotation-Client", 
