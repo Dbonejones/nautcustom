@@ -57,7 +57,7 @@
   "docstatus": 0, 
   "doctype": "Custom Script", 
   "dt": "Sales Order", 
-  "modified": "2016-12-12 13:07:34.765712", 
+  "modified": "2017-03-30 17:13:22.395351", 
   "name": "Sales Order-Client", 
   "script": "cur_frm.fields_dict['multi_tc'].grid.get_field('mt_title').get_query = function(doc) {\n    return {\n        filters: [[\n            'Terms and Conditions', 'type', '=', doc.type_select\n        ]]\n    }\n};", 
   "script_type": "Client"
