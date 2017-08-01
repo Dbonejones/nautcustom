@@ -39,9 +39,9 @@
   "docstatus": 0, 
   "doctype": "Custom Script", 
   "dt": "Attendance", 
-  "modified": "2017-06-13 16:20:49.036464", 
+  "modified": "2017-07-31 10:42:12.984175", 
   "name": "Attendance-Client", 
-  "script": "frappe.ui.form.on(\"Attendance\", {\n\"employee\": function(frm) {\n\t\tif(frm.doc.employee) {\n\t\t\treturn frappe.call({\n\t\t\t\tmethod: \"erpnext.hr.doctype.leave_application.leave_application.get_leave_balance_on\",\n\t\t\t\targs: {\n\t\t\t\t\temployee: frm.doc.employee,\n\t\t\t\t\tdate: frm.doc.attendance_date,\n\t\t\t\t\tleave_type: 'Sick Leave',\n\t\t\t\t\tconsider_all_leaves_in_the_allocation_period: true\n\t\t\t\t},\n\t\t\t\tcallback: function(r) {\n\t\t\t\t\tif (!r.exc && r.message) {\n\t\t\t\t\t\tfrm.set_value('sick_days_remaining', r.message);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t});\n\t\t}\n\t\t//else(frm.set_value('sick_days_remaining')==='');\n}\n});\nfrappe.ui.form.on(\"Attendance\", {\n\"status\": function(frm) {\n        if (frm.doc.status=='Present') {\n          (frm.set_value('reason', ''));\n          (frm.set_value('reason_for_absence', ''));\n          (frm.toggle_reqd('hours', true));\n          (frm.toggle_reqd('reason', false));\n        }\n        else if (frm.doc.status=='Absent') {\n          (frm.set_value('hours', ''));\n          (frm.toggle_reqd('hours', false));\n          (frm.toggle_reqd('reason', true));\n        }\n        else if (frm.doc.status=='Half Day') {\n          (frm.toggle_reqd('hours', true));\n          (frm.toggle_reqd('reason', true));\n        }\n        else {\n          (frm.toggle_reqd('hours', false));\n          (frm.toggle_reqd('reason', false));\n          (frm.set_value('hours', ''));\n          (frm.set_value('reason', ''));\n          (frm.set_value('reason_for_absence', ''));\n        }\n      }\n});\ncur_frm.add_fetch(\"employee\", \"department\", \"department\");", 
+  "script": "cur_frm.add_fetch(\"employee\", \"department\", \"department\");", 
   "script_type": "Client"
  }, 
  {
