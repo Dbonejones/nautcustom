@@ -10,5 +10,12 @@ def get_data():
 			"icon": "octicon octicon-file-directory",
 			"type": "module",
 			"label": _("Nautcustom")
+		},
+				{
+			"module_name": "Drawings Portal",
+			"color": "#4256f4",
+			"icon": "fa fa-pencil-square-o",
+			"type": "module",
+			"label": _("Drawings Portal")
 		}
 	]
