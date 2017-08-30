@@ -2,6 +2,15 @@
  {
   "docstatus": 0, 
   "doctype": "Custom Script", 
+  "dt": "NDA", 
+  "modified": "2017-08-30 09:00:59.704795", 
+  "name": "NDA-Client", 
+  "script": "// cur_frm.set_value(\"user\" , frappe.user.full_name);\nfrappe.ui.form.on(\"NDA\", {\n    refresh: function(frm) {\n        frm.set_df_property(\"agree\", \"read_only\", frm.doc.__islocal ? 0 : 1);\n    }\n});\n", 
+  "script_type": "Client"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
   "dt": "Expense Claim", 
   "modified": "2017-06-13 16:27:24.233706", 
   "name": "Expense Claim-Client", 

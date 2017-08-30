@@ -17,5 +17,12 @@ def get_data():
 			"icon": "fa fa-pencil-square-o",
 			"type": "module",
 			"label": _("Drawings Portal")
-		}
+		},
+				{
+			"module_name": "Legal Documents",
+			"color": "#6b6353",
+			"icon": "fa fa-gavel",
+			"type": "module",
+			"label": _("Legal Documents")
+		},
 	]
