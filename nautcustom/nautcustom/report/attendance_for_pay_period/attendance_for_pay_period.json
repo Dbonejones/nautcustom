@@ -2,18 +2,34 @@
  "add_total_row": 0, 
  "apply_user_permissions": 1, 
  "creation": "2017-01-24 11:15:38.705678", 
- "disabled": 0, 
+ "disabled": 1, 
  "docstatus": 0, 
  "doctype": "Report", 
- "idx": 0, 
+ "idx": 1, 
  "is_standard": "Yes", 
- "letter_head": "Nautican address", 
- "modified": "2017-01-25 14:02:30.619605", 
+ "modified": "2017-09-28 14:54:50.150222", 
  "modified_by": "Administrator", 
  "module": "Nautcustom", 
  "name": "Attendance for pay period", 
  "owner": "Administrator", 
  "ref_doctype": "Attendance", 
  "report_name": "Attendance for pay period", 
- "report_type": "Script Report"
+ "report_type": "Script Report", 
+ "roles": [
+  {
+   "role": "Employee"
+  }, 
+  {
+   "role": "System Manager"
+  }, 
+  {
+   "role": "Attendance checker"
+  }, 
+  {
+   "role": "HR User"
+  }, 
+  {
+   "role": "HR Manager"
+  }
+ ]
 }
